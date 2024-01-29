@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <h1>My Calculator</h1>
+    <br>
+    <table border="10" style="width: 30%;">
+        <tr>
+           <td colspan="4"><input type="text" style="height: 30px; width:98%; font-size: 2rem;"  id="display" readonly></td>
+        </tr>
+        <tr>
+            <td><button style="width: 100%;"  onclick="clearDisplay()">Clear</button></td>
+            <td colspan="3"><button style="width:100%;" id="backSpace">Delete</button></td>
+        </tr>
+        <tr style="margin-right: 2rem;">
+            <td><button style="width:100%;" id="b1" onclick="addInput('1')">1</button></td>
+            <td><button style="width:100%;"id="b2"  onclick="addInput('2')">2</button></td>
+            <td><button style="width:100%;"id="b3"  onclick="addInput('3')">3</button></td>
+            <td><button style="width:100%;"id="b="  onclick="addInput('+')">+</button></td>
+            
+            
+        </tr>
+        <tr>
+            <td><button style="width:100%;" id="b4"  onclick="addInput('4')">4</button></td>
+            <td><button style="width:100%;" id="b5"  onclick="addInput('5')">5</button></td>
+            <td><button style="width:100%;" id="b6"  onclick="addInput('6')">6</button></td>
+            <td><button style="width:100%;" id="b-"  onclick="addInput('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button style="width:100%;" id="b7"  onclick="addInput('7')">7</button></td>
+            <td><button style="width:100%;" id="b8"  onclick="addInput('8')">8</button></td>
+            <td><button style="width:100%;" id="b9"  onclick="addInput('9')">9</button></td>
+            <td><button style="width:100%;" id="bx"  onclick="addInput('*')">X</button></td>
+        </tr>
+        <tr>
+            <td><button style="width:100%;" id="b0" onclick="addInput('0')">0</button></td>
+            <td colspan="2"><button style="width:100%;"  onclick="calculate()" >=</button></td>
+            <td><button style="width:100%;" onclick="addInput('/')">/</button></td>
+        </tr>
+    </table>
+    <script>
+
+        const display = document.getElementById("display");
+        
+        function  addInput(input){
+        display.value += input;
+        }
+        function clearDisplay(){
+            display.value="";
+        }
+        function calculate(){
+            display.value= eval(display.value);
+        }
+       const backSpace=document.getElementById('backSpace');
+       
+
+        backSpace.addEventListener('click',function(){
+        display.value = display.value.substring(0, display.value.length-1)
+        });
+        </script>
+</body>
+</html>
